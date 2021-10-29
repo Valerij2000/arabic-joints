@@ -1,0 +1,70 @@
+/* Всплывающим окном - может быть везде, где угодно */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.custom-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* Фактическое всплывающее окно */
+.popup .popuptext {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: center;
+  visibility: hidden;
+  width: 300px;
+  background-color: #3eff0e;
+  color: #0e0d0d;
+  text-align: center;
+  border-radius: 6px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 11%;
+  box-shadow: inset 2px 2px 5px rgb(154 147 140 / 50%), 1px 1px 5px rgb(255 255 255);
+}
+
+@media (max-width: 370px) {
+  .popup .popuptext {
+    left: 1%;
+  }
+}
+
+/* Всплывающее окно со стрелками */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Переключите этот класс - скрыть и показать всплывающее окно */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Добавить анимацию (исчезает во всплывающем окне) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
